@@ -14,7 +14,6 @@ export default function PermissionPrompt({ onAllowVisiting, onAllowOnce, onDeny 
     <div className="perm-overlay">
       <div className="perm-dialog">
 
-        {/* Fake browser chrome bar */}
         <div className="perm-browser-bar">
           <div className="perm-browser-dots"><span /><span /><span /></div>
           <div className="perm-browser-url">
@@ -36,7 +35,6 @@ export default function PermissionPrompt({ onAllowVisiting, onAllowOnce, onDeny 
             <span>Only share with sites you trust. The site can see everything on the shared surface.</span>
           </div>
 
-          {/* ── Selectable options ── */}
           <div className="perm-options">
 
             {/* Option 1: Allow while visiting */}
@@ -83,7 +81,6 @@ export default function PermissionPrompt({ onAllowVisiting, onAllowOnce, onDeny 
 
           </div>
 
-          {/* Context hint */}
           <div className={`perm-hint${selected === 'once' ? ' perm-hint-once' : ''}`}>
             {selected === 'visiting'
               ? '🔵  This tab will remember your choice. Retry without a prompt until you close the tab or revoke access.'
