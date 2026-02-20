@@ -24,13 +24,15 @@ function clearPerm() {
 
 export function useScreenShare() {
   const [status, setStatus]             = useState(PermissionState.IDLE)
-  const [permissionStage, setStage]     = useState('idle')
-  const [permissionType, setPermType]   = useState(null) 
+  const [permissionStage, setStage]     = useState('idle') // idle|prompting|granted|denied
+  const [permissionType, setPermType]   = useState(null)   // null|'visiting'|'once'
   const [error, setError]               = useState(null)
   const [trackInfo, setTrackInfo]       = useState(null)
 
   const streamRef = useRef(null)
-  const videoRef  = useRef(null) 
+  const videoRef  = useRef(null)   // main page <video>
+
+  /* ── cleanup ── */
   const cleanup = useCallback(() => {
     if (streamRef.current) {
       streamRef.current.getTracks().forEach(t => t.stop())

@@ -37,7 +37,6 @@ export default function PermissionPrompt({ onAllowVisiting, onAllowOnce, onDeny 
 
           <div className="perm-options">
 
-            {/* Option 1: Allow while visiting */}
             <div
               className={`perm-option perm-option-selectable${selected === 'visiting' ? ' perm-option-selected' : ''}`}
               onClick={() => setSelected('visiting')}
@@ -58,7 +57,6 @@ export default function PermissionPrompt({ onAllowVisiting, onAllowOnce, onDeny 
               </div>
             </div>
 
-            {/* Option 2: Allow this time */}
             <div
               className={`perm-option perm-option-selectable${selected === 'once' ? ' perm-option-selected' : ''}`}
               onClick={() => setSelected('once')}
