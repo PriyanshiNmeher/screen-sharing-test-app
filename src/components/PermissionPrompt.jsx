@@ -36,10 +36,8 @@ export default function PermissionPrompt({ onAllowVisiting, onAllowOnce, onDeny 
             <span>Only share with sites you trust. The site can see everything on the shared surface.</span>
           </div>
 
-          {/* ── Selectable options ── */}
           <div className="perm-options">
 
-            {/* Option 1: Allow while visiting */}
             <div
               className={`perm-option perm-option-selectable${selected === 'visiting' ? ' perm-option-selected' : ''}`}
               onClick={() => setSelected('visiting')}
@@ -60,7 +58,6 @@ export default function PermissionPrompt({ onAllowVisiting, onAllowOnce, onDeny 
               </div>
             </div>
 
-            {/* Option 2: Allow this time */}
             <div
               className={`perm-option perm-option-selectable${selected === 'once' ? ' perm-option-selected' : ''}`}
               onClick={() => setSelected('once')}
@@ -83,7 +80,6 @@ export default function PermissionPrompt({ onAllowVisiting, onAllowOnce, onDeny 
 
           </div>
 
-          {/* Context hint */}
           <div className={`perm-hint${selected === 'once' ? ' perm-hint-once' : ''}`}>
             {selected === 'visiting'
               ? '🔵  This tab will remember your choice. Retry without a prompt until you close the tab or revoke access.'
