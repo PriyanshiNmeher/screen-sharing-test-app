@@ -29,7 +29,6 @@ export default function ScreenTestPage({ onNavigate }) {
     requestAnimationFrame(() => reattachVideo())
   }
 
-  /* Also reattach whenever GRANTED state is set (covers initial grant) */
   useEffect(() => {
     if (status === PermissionState.GRANTED) {
       requestAnimationFrame(() => reattachVideo())
