@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 export default function PermissionPrompt({ onAllowVisiting, onAllowOnce, onDeny }) {
   const [selected, setSelected] = useState('visiting')
-  const site = window.location.hostname || 'localhost'
+  const site = window.location.hostname || 'https://screen-sharing-test-app.vercel.app/'
 
   const handleAllow = () => {
     if (selected === 'visiting') onAllowVisiting()
