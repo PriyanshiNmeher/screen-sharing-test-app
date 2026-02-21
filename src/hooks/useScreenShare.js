@@ -1,4 +1,3 @@
-
 import { useState, useRef, useCallback, useEffect } from 'react'
 import { PermissionState } from '../constants.js'
 
@@ -42,6 +41,7 @@ export function useScreenShare() {
     setTrackInfo(null)
   }, [])
 
+  /* ── reattach main video after minimize ── */
   const reattachVideo = useCallback(() => {
     if (videoRef.current && streamRef.current) {
       videoRef.current.srcObject = streamRef.current
@@ -49,6 +49,7 @@ export function useScreenShare() {
     }
   }, [])
 
+  /* ── core capture ── */
   const doCapture = useCallback(async (chosenType) => {
     setStage('granted')
     setStatus(PermissionState.REQUESTING)
@@ -71,6 +72,7 @@ export function useScreenShare() {
       const stream = await fn(constraints)
       streamRef.current = stream
 
+      /* attach to main video immediately — fixes blank-on-start bug */
       if (videoRef.current) {
         videoRef.current.srcObject = stream
         videoRef.current.play().catch(() => {})
@@ -88,7 +90,9 @@ export function useScreenShare() {
         label:          track.label             || 'Screen',
       })
 
+      /* save permission */
       if (chosenType === 'visiting') savePerm('visiting')
+      // 'once' → nothing saved — next request will show prompt again
 
       setPermType(chosenType)
       setStatus(PermissionState.GRANTED)
@@ -122,6 +126,7 @@ export function useScreenShare() {
     }
   }, [cleanup])
 
+  /* ── public actions ── */
   const allowWhileVisiting = useCallback(() => doCapture('visiting'), [doCapture])
   const allowOnce          = useCallback(() => doCapture('once'),     [doCapture])
 
@@ -130,6 +135,7 @@ export function useScreenShare() {
     setStatus(PermissionState.IDLE)
     const saved = getSaved()
     if (saved?.type === 'visiting') {
+      // Session permission active → skip prompt, go straight to OS picker
       doCapture('visiting')
     } else {
       setStage('prompting')
