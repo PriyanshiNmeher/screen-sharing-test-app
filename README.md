@@ -1,14 +1,14 @@
 **SETUP INSTRUCTIONS**
 
 1. Install react vite app then Tailwind CSS in it and add in your vite.config.js also import in index.css
-2. Now create different components as required
-   AppHeader
-   Button
-   StatusDot (To represent the status of streaming)
-   MetaCard (To show Resolution, FPS and Display type)
-   Steps (To show the progress of Screen-sharing that is Permission → Preview → Lifecycle)
-   PermissionPrompt (Custom browser-style permission dialog box where you can select the option of allowing the screen sharing type that is  "Allow while visiting","Allow this time","Don't allow")
-   FullscreenOverlay (To view the screen sharing on full screen)
+2. Now create different components as required:
+   AppHeader,
+   Button,
+   StatusDot (To represent the status of streaming),
+   MetaCard (To show Resolution, FPS and Display type),
+   Steps (To show the progress of Screen-sharing that is Permission → Preview → Lifecycle),
+   PermissionPrompt (Custom browser-style permission dialog box where you can select the option of allowing the screen sharing type that is  "Allow while visiting","Allow this time","Don't allow"),
+   FullscreenOverlay (To view the screen sharing on full screen),
 3. Create constants.js to represent the Permission states
 4. Make useScreenShare.js file to create hooks, where all the logic of ScreenTestPage is written
 5. Now create two pages one form landing (HomePage for "/" route) and other for screen sharing (ScreenTestPage for "/screen-test" route) using different components and js files
