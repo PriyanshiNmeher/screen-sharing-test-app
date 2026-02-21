@@ -30,3 +30,15 @@ https://screen-sharing-test-app.vercel.app/
 
 **SCREENSHOTS**
 https://drive.google.com/file/d/1Qimu7bPpvrbpafrhDGIwJYaVhndOQ4Sz/view?usp=sharing
+
+**KNOWN LIMITATIONS**
+
+1. It cannot record Audio
+2. Unsupported on mobile phone because mobile browser does not have required API
+3. It does not save the recording, real time screen capture only
+4. No backend added only streaming on local storage
+
+**BROWSER QUIRKS**
+
+1. For screen sharing i have used "displaySurface" API that is only available in Edge or Chrome
+2. Requested FPS and Actual FPS may be different
